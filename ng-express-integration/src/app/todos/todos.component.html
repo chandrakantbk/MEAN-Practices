@@ -1,0 +1,51 @@
+<div class="container">
+  <h3>{{title}}</h3>
+
+    
+  <div>
+    <div class="container">
+        <div class="text-center">
+            <h1>Angular 7 - Pagination Example with logic like Google</h1>
+
+         
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+  <table class="table table-hover table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>ToDo Id</th>
+        <th>Title</th>
+        <th>Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of pagedItems">
+        <td>{{t.userId}}</td>
+        <td>{{t.id}}</td>
+        <td>{{t.title}}</td>
+        <td><p [ngStyle]="{'color': t.completed === true ? 'green' : 'red' }">{{t.completed === true ? 'Done' : 'Pending' }}</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

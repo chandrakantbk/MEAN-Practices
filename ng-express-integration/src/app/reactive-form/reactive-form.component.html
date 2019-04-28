@@ -1,0 +1,140 @@
+<hr/>
+<div>
+
+<form  [formGroup]="sf" 
+(ngSubmit)="submitForm(sf.value)" >
+
+<table border="10">
+<caption>{{title}}</caption>
+<tbody>
+<tr>
+<td>First Name  </td>
+<td><input name="firstName" 
+  [formControl]="sf.controls['firstName']">  </td>
+<td>
+<span *ngIf="sf.controls['firstName'].dirty">
+<div [hidden]="!sf.controls['firstName'].
+hasError('required')">
+       First Name is required...
+</div>
+
+   <div [hidden]="!sf.controls['firstName'].hasError
+   ('minlength')">
+       First Name should be minimum of 10 chars...
+  </div>
+
+  <div [hidden]="!sf.controls['firstName'].hasError
+  ('maxlength')">
+      First Name should be maximum of 20 chars...
+ </div>
+
+</span> 
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td>Last Name  </td>
+<td><input name="lastName" 
+  [formControl]="sf.controls['lastName']">   </td>
+<td>
+  Angular JS Tutorial
+<span *ngIf="sf.controls['lastName'].dirty">
+<div [hidden]="!sf.controls['lastName'].
+hasError('required')">
+       Last Name is required...
+</div>
+
+<div [hidden]="!sf.controls['lastName'].hasError
+('minlength')">
+    Last Name should be minimum of 10 chars...
+</div>
+<div [hidden]="!sf.controls['lastName'].hasError
+('maxlength')">
+    Last Name should be maximum of 20 chars...
+</div>
+
+
+</span> 
+
+
+
+</td>
+</tr>
+<tr>
+<td>Email  </td>
+<td><input name="email" type="text"  
+  [formControl]="sf.controls['email']">   </td>
+<td>
+
+<span *ngIf="sf.controls['email'].dirty">
+<div [hidden]="!sf.controls['email'].
+hasError('required')">
+       Email is required...
+</div>
+
+<div [hidden]="!sf.controls['email'].
+hasError
+('minlength')">
+    Email should be minimum of 8 chars...
+</div>
+
+<div [hidden]="!sf.controls['email'].
+hasError
+('maxlength')">
+    Email should be maximum of 20 chars...
+</div>
+
+
+  <div [hidden]="!sf.controls['email'].hasError
+   ('email')">
+             Invalid Email
+  </div>
+
+
+</span> 
+</td>
+</tr>
+<tr>
+<td>Mobile  </td>
+<td><input name="mobile" type="text"  
+  [formControl]="sf.controls['mobile']">   </td>
+<td>
+
+<span *ngIf="sf.controls['mobile'].dirty">
+<div [hidden]="!sf.controls['mobile'].
+hasError('pattern')">
+
+Mobile is invalid
+
+</div>
+
+</span> 
+</td>
+</tr>
+
+<tr>
+<td>
+<input type="submit" value="Submit" 
+   [disabled]="!sf.valid" >
+</td>  
+<td colspan="2" align="center">
+<input type="reset" value="Reset"/>
+</td>  
+</tr>
+
+
+
+
+</tbody> 
+</table>
+</form>
+
+
+Valid :{{sf.valid}} <br/>
+Invalid :{{sf.invalid}} <br/>
+</div>

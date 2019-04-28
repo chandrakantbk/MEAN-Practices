@@ -1,0 +1,99 @@
+<form name="studentForm" >
+    <table border="1px solid">
+      <caption> <h3>{{title}} </h3></caption>
+      
+      <tbody>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" name="firstName" 
+          required minlength="8" maxlength="15"
+           [(ngModel)]="student.firstName" #fname='ngModel'></td>
+          <td>
+
+            <p *ngIf="fname.dirty && fname.errors">
+              <span [hidden]="!fname.errors.required">
+                First name is required
+              </span>
+              <span [hidden]="!fname.errors.minlength">
+                First name should be of minimum of 8
+              </span>
+              <span [hidden]="fname.valid">
+              </span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input type="text" name="lastName" required minlength="8" maxlength="15" [(ngModel)]="student.lastName" #lname='ngModel'></td>
+          <td>Angular JS Tutorial
+              <p *ngIf="lname.dirty && lname.errors">
+              <span [hidden]="!lname.errors.required">
+                Last name is required
+              </span>
+              <span [hidden]="!lname.errors.minlength">
+                Last name should be of minimum of 8
+              </span>
+              <span [hidden]="lname.valid">
+              </span>
+            </p>        
+    
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" name="email" required minlength="8" 
+            maxlength="15" [(ngModel)]="student.email"
+             #email='ngModel' email></td>
+    
+          <td>
+            <p *ngIf="email.dirty && email.errors">
+              <span [hidden]="!email.errors.required">
+                Email is required
+              </span>
+              <span [hidden]="!email.errors.minlength">
+                Email should be of minimum of 8
+              </span>
+              <span [hidden]="!email.errors.email">
+                Invalid Email
+              </span>
+            </p>
+    
+          </td>
+        </tr>
+    
+        <tr>
+            <td>Mobile</td>
+            <td><input  name="mobile" required 
+               pattern="[1-9]{0-9}{9,9}" 
+                [(ngModel)]="student.mobile"
+               #mobile='ngModel'></td>
+      
+            <td>
+              <p *ngIf="mobile.dirty && mobile.errors">
+                <span [hidden]="!mobile.errors.pattern">
+                  Invalid Mobile 
+                </span>
+                <span [hidden]="!mobile.errors.required">
+                    Mobile is required 
+                  </span>
+                  </p>
+      
+            </td>
+          </tr>
+      
+
+
+        <tr>
+          <td colspan="3" align="center"><input type="submit" value="Submit"></td>
+        </tr>
+      </tbody>
+    </table>
+    </form>
+    <p style="color:red">
+    
+      Fname Dirty :{{fname.dirty}}  <br/>
+      Fname touched :{{fname.touched}}  <br/>
+      Fname  errors :{{fname.errors|json}}  <br/>
+      Mobile :{{mobile.errors|json}}
+    
+    </p>

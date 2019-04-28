@@ -1,0 +1,14 @@
+<div   [ngStyle]="{'background-color':'cyan'}">
+<h3>
+
+    Country Name  :<input  [(ngModel)]="name"/>  <br/><br/>
+  
+    State Name  :  {{stateName}}  <br/><br/>
+    
+    City  Name  :   {{cityName}}  <br/><br/>
+
+
+</h3>
+<app-state  [countryName]="name"   (stateChanged)="stateName=$event"  (cityChanged)="cityName=$event"  ></app-state>
+
+</div>

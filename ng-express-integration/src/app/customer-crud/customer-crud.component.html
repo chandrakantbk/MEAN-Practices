@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <input type="button" value="Add Customer" class="btn btn-info" (click)="addNewCustomer()">
+  </div>
+  <div *ngIf="customer" class="row">
+    <h3>{{mode}}</h3>
+    <table class="table table-hover">
+      <tr>
+        <th>Email*</th>
+        <td><input [disabled]="txtemail" [(ngModel)]="customer.email" required></td>
+      </tr>
+      <tr>
+        <th>First Name*</th>
+        <td><input [(ngModel)]="customer.firstName" required></td>
+      </tr>
+      <tr>
+        <th>Last Name*</th>
+        <td><input [(ngModel)]="customer.lastName"></td>
+      </tr>
+      <tr>
+        <th>Gender*</th>
+        <td><input [(ngModel)]="customer.gender"></td>
+      </tr>
+      <tr>
+        <th>Address*</th>
+        <td><input [(ngModel)]="customer.address"></td>
+      </tr>
+      <tr>
+        <th>City*</th>
+        <td><input [(ngModel)]="customer.city"></td>
+      </tr>
+      <tr>
+        <th>State*</th>
+        <td><input [(ngModel)]="customer.state"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div><input type="button" [disabled]="add" value="Add" class="btn btn-info" (click)="addCustomer()">
+            &nbsp;<input type="button" value="Cancel" class="btn btn-info" (click)="onCancel()">
+            &nbsp;<input type="button" [disabled]="save" value="Save" class="btn btn-danger"
+              (click)="updateCustomerById(customer.email)">
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row" *ngIf="!customer">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of customers">
+          <td>{{c.email}}</td>
+          <td>{{c.firstName}}</td>
+          <td>{{c.lastName}}</td>
+          <td>{{c.gender}}</td>
+          <td>{{c.address}}</td>
+          <td>{{c.city}}</td>
+          <td>{{c.state}}</td>
+          <td><input type="button" value="Edit" class="btn btn-info" (click)="getCustomerById(c.email)"></td>
+          <td><input type="button" value="Delete" class="btn btn-danger" (click)="deleteCustomerById(c.email)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
