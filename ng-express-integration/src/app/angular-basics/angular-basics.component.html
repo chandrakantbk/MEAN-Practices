@@ -1,0 +1,80 @@
+<div>
+
+<h2>{{title}}</h2>
+
+<div>
+<h3>My Favourate Colors</h3>
+<ul>
+<li *ngFor="let c of colors"  [ngStyle]="{'color':c}" >  {{c}} </li>
+</ul>
+</div>
+
+
+<div>
+ Select Day  :<input type="number" [(ngModel)]="day"   min="{{min}}"   [max]="max"  />  {{ day }} 
+
+<div [ngSwitch]="day">
+    <div *ngSwitchCase="1">MONDAY</div>
+    <div *ngSwitchCase="2">TUESDAY</div>
+    <div *ngSwitchCase="3">WEDENESDAY</div>
+    <div *ngSwitchCase="4">THURSDAY</div>
+    <div *ngSwitchCase="5">FRIDAY</div>
+    <div *ngSwitchCase="6">SATURDAY</div>
+    <div *ngSwitchCase="7">SUNDAY</div>
+    <div *ngSwitchDefault>Sorry I don't know What day it is ?</div>
+</div>
+</div>
+
+<div>
+<pre>
+    Employee Id      : {{employee.id}}
+    Employee Name    : {{employee.name}}
+    Employee Name    : {{employee.name|titlecase}}
+    Employee Name    : {{employee.name|uppercase}}
+    Employee Name    : {{employee.name|lowercase}}
+    
+    Employee Salary  : {{employee.salary}}
+    Employee Salary  : {{employee.salary|number:'8.4-4'}}
+    Employee Salary  : {{employee.salary|currency:'INR'}}
+        
+    Employee Variable: {{employee.variable}}
+    Employee Variable: {{employee.variable|percent}}
+    
+    Employee DOJ     : {{employee.doj}}
+    Employee DOJ     : {{employee.doj|date}}
+    Employee DOJ     : {{employee.doj|date:'shortDate'}}
+    Employee DOJ     : {{employee.doj|date:'mediumDate'}}
+    Employee DOJ     : {{employee.doj|date:'longDate'}}
+    Employee DOJ     : {{employee.doj|date:'fullDate'}}
+    
+    Employee DOJ     : {{employee.doj|date:'shortTime'}}
+    Employee DOJ     : {{employee.doj|date:'mediumTime'}}
+    Employee DOJ     : {{employee.doj|date:'longTime'}}
+    Employee DOJ     : {{employee.doj|date:'fullTime'}}
+
+    Employee DOJ     : {{employee.doj|date:'short'}}
+    Employee DOJ     : {{employee.doj|date:'medium'}}
+    Employee DOJ     : {{employee.doj|date:'long'}}
+    Employee DOJ     : {{employee.doj|date:'full'}}
+    
+    Employee Mobile  : {{employee.mobile}}
+    Employee Mobile  : XXXXXXXX{{employee.mobile|slice:8:10}}
+    Employee PAN     : {{employee.pan}}
+    Employee PAN     : {{employee.pan|uppercase|slice:0:2}}******{{employee.pan|uppercase|slice:8:10}}
+    
+    Today is       :{{today }}
+
+
+    <ul>
+      <li *ngFor="let entry of employee|keyvalue">{{entry.key}} =>{{entry.value}}</li>
+    </ul>
+
+   Employee       :{{employee|json}} 
+
+</pre>
+</div>
+
+
+
+
+</div>

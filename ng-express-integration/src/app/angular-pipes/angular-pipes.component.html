@@ -1,0 +1,47 @@
+<div class="container">
+
+
+Select no of rows :<input  min="1"   [max]="employees.length" type="number" [(ngModel)]="rows"/>
+
+<br/><br/>
+
+Search Text :<input  [(ngModel)]="searchText" placeholder="Search Text"/>
+
+
+  <table class="table table-hover table-striped table-responsive">
+<caption><h3> {{title}} </h3></caption>
+    <thead>
+    <tr>
+        <th (click)="sort('id')">ID</th>
+        <th (click)="sort('name')">NAME</th>
+        <th (click)="sort('salary')">SALARY AS NUMBER</th>
+        <th (click)="sort('salary')">SALARY AS CURRENCY</th>
+        <th (click)="sort('age')">AGE</th>
+        <th (click)="sort('gender')">GENDER</th>
+        <th (click)="sort('city')">CITY</th>
+        <th (click)="sort('pan')">PAN</th>
+        <th (click)="sort('mobile')">MOBILE</th>
+        <th (click)="sort('dob')">DOB</th>
+
+
+    </tr>
+    </thead>
+ <tbody>
+<tr *ngFor="let e of employees|slice:0:rows|orderBy:sortColumn:descending|filter:searchText">
+   <td>{{e.id}}</td>
+    <td>{{e.name|titlecase}}</td>
+    <td>{{e.salary|number:'8.3-3'}}</td>
+    <td>{{e.salary|currency:'INR'}}</td>
+    <td>{{e.age}}</td>
+    <td>{{e.gender|gender}}</td>
+    <td>{{e.city|lowercase}}</td>
+    <td>{{e.pan|uppercase|slice:0:2}}XXXXXX{{e.pan|uppercase|slice:8:10}}</td>
+    <td>XXXXX{{e.mobile|slice:8:10}}</td>
+    <td>{{e.dob|date}}</td>
+    </tr>
+</tbody>
+</table>
+
+{{employees[0]|json}}
+
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+   <h3>{{title}}</h3>
+   <table class="table table-hover table-striped table-responsive">
+      <thead>
+         <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>CITY</th>
+            <th>COMPANY</th>
+            <th>VIEW POSTS</th>
+            <th>VIEW TODOS</th>
+            <th>VIEW ALBUMS</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let u of users">
+            <td>{{u.id}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.address.city}}</td>
+            <td>{{u.company.name}}</td>
+            <td><a [routerLink]="['/casestudy/posts']"   [queryParams]="{'userId':u.id}"  ><input type="button" value="VIEW POSTS" class="btn btn-info"></a></td>
+            <td><a [routerLink]="['/casestudy/albums']" [queryParams]="{'userId':u.id}"><input type="button" value="VIEW ALBUMS" class="btn btn-success"></a></td>
+            <td><a [routerLink]="['/casestudy/todos']" [queryParams]="{'userId':u.id}"><input type="button" value="VIEW TODOSS" class="btn btn-primary"></a></td>
+         </tr>
+      </tbody>
+   </table>
+</div>
