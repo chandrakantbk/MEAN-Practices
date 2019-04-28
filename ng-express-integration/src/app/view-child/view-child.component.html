@@ -1,0 +1,38 @@
+<div>
+<h3>@ViewChild using Component</h3>
+Number Example:
+<button type="button" (click)="increase()">Increase</button>
+<button type="button" (click)="decrease()">Decrease</button>
+<br/><br/>
+<app-number></app-number> 
+</div>
+
+<div  *ngShow="true">
+  <h3>@ViewChild using Component</h3>
+  Stopwatch Example: 
+  <button type="button" (click)="start()">Start</button>
+  <button type="button" (click)="stop()">Stop</button>
+  <br/>
+  <app-stopwatch></app-stopwatch> 
+
+
+</div>
+<div  *ngShow="true">
+  <h3>@ViewChild using Directive</h3>
+  
+  <button type="button" (click)="hide()">Hide Above Div</button>
+  <button type="button" (click)="change()">Change Name and City Colors</button>
+  
+
+</div>
+
+
+<div>
+
+  <h3>@ViewChild with Template Variable using ElementRef to access Native Element </h3>
+  <div>
+     Name: <input type="text" #name> <br/>
+     City: <input type="text" #city>  
+  </div> 
+
+</div>

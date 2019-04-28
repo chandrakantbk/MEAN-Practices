@@ -1,0 +1,16 @@
+.A{
+    border: 5px solid black;
+}
+
+.C{
+    font-family: 'Courier New', Courier, monospace
+}
+
+.B{
+    color: red;
+}
+
+.D{
+    font-size: 2em;
+   background: cyan; 
+}

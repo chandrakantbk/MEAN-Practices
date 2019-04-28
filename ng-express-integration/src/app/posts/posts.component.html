@@ -1,0 +1,80 @@
+<div class="container">
+    <h3>{{title}}</h3>
+    <div *ngIf="post">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>User Id</th>
+                    <td>{{post1.userId}}</td>
+                </tr>
+                <tr>
+                    <th>Post Id</th>
+                    <td>{{post1.id}}</td>
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <td>{{post1.title}}</td>
+                </tr>
+                <tr>
+                    <th>Body</th>
+                    <td>{{post1.body}}</td>
+                </tr>
+                <tr>
+                    <th>
+                        <a  class="btn btn-primary">View Comments</a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="!post">
+
+        <div>
+            <div class="container">
+                <div class="text-center">
+
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(1)">First</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                        </li>
+                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a (click)="setPage(page)">{{page}}</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.totalPages)">Last</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <table class="table table-hover table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>Post Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of pagedItems">
+                    <td>{{p.userId}}</td>
+                    <td>{{p.id}}</td>
+                    <td><a [routerLink]="['/casestudy/posts',p.id]">{{p.title}}</a></td>
+                    <td>{{p.body}}</td>
+                    <td>
+                        <input type="button" value="View Comments" class="btn btn-primary" (click)="showComments(p.id)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

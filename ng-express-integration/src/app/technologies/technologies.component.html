@@ -1,0 +1,34 @@
+<div class="container">
+
+
+  <table class="table table-hover table-striped table-responsive">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>LIKES</th>
+        <th>DISLIKES</th>
+        <th>LIKE IT</th>
+        <th>DISLIKE IT</th>
+    </tr>
+    </thead>
+ <tbody>
+<tr *ngFor="let t of technologies">
+   <td>{{t.id}}</td>
+    <td>{{t.title}}</td>
+    <td>{{t.likes}}</td>
+    <td>{{t.dislikes}}</td>
+    <td><input type="button" value="LIKE IT"  class="btn btn-info" (click)="incrementLikes(t)"></td>
+    <td><input type="button" value="DISLIKE IT" class="btn btn-danger" (click)="incrementDislikes(t)"></td>
+    
+   </tr>
+
+</tbody>
+
+</table>
+
+
+
+
+</div>

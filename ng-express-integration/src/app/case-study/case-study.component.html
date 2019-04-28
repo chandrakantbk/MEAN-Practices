@@ -1,0 +1,26 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">{{title}}</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a [routerLink]="['/casestudy/users']">Users</a></li>
+      <li><a [routerLink]="['/casestudy/posts']">Posts</a></li>
+      <li><a [routerLink]="['/casestudy/comments']"> Comments </a></li>
+      <li><a [routerLink]="['/casestudy/todos']">Todos </a></li>
+      <li><a [routerLink]="['/casestudy/albums']">Albums </a></li>
+      <li><a [routerLink]="['/casestudy/photos']">Photos </a></li>
+      
+      
+      
+
+    </ul>
+    
+    
+  </div>
+</nav>
+  
+<div class="container">
+  <router-outlet>   </router-outlet>
+</div>
